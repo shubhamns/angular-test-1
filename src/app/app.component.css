@@ -1,0 +1,50 @@
+.container {
+  margin: 5% 10%;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+input {
+  width: 100%;
+  padding: 5px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+.modal .content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+}
+
+.mx-1 {
+  margin: 0 5px;
+}
