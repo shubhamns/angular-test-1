@@ -61,7 +61,7 @@ export class AppComponent {
   submitWork() {
     const payload = {
       id: this.selectedEmployee?.empId,
-      value: this.workInput?.trim(),
+      value: this.workInput,
     };
     this._employeeService.updateWork(payload).subscribe(
       (resp: any) => {
@@ -79,7 +79,7 @@ export class AppComponent {
   submitVocation() {
     const payload = {
       id: this.selectedEmployee?.empId,
-      value: this.vocationInput?.trim(),
+      value: this.vocationInput,
     };
     this._employeeService.updateVacation(payload).subscribe(
       (resp: any) => {

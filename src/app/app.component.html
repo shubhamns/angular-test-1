@@ -28,13 +28,11 @@
       <form class="login-form" (ngSubmit)="submitWork()">
         <div>
           <label>Please Enter Your Work</label>
-          <input type="text" name="workInput" [(ngModel)]="workInput" />
+          <input type="number" name="workInput" [(ngModel)]="workInput" min="0" />
         </div>
         <div style="text-align: end">
           <button type="button" class="mx-1" (click)="handleHideWork()">Close</button>
-          <button type="submit" [disabled]="!workInput?.trim()" class="mx-1">
-            Submit
-          </button>
+          <button type="submit" [disabled]="!workInput" class="mx-1">Submit</button>
         </div>
       </form>
     </div>
@@ -45,13 +43,11 @@
       <form class="login-form" (ngSubmit)="submitVocation()">
         <div>
           <label>Please Enter Your Vocation</label>
-          <input type="text" name="vocationInput" [(ngModel)]="vocationInput" />
+          <input type="number" name="vocationInput" [(ngModel)]="vocationInput" min="0" />
         </div>
         <div style="text-align: end">
           <button type="button" class="mx-1" (click)="handleHideVocation()">Close</button>
-          <button type="submit" [disabled]="!vocationInput?.trim()" class="mx-1">
-            Submit
-          </button>
+          <button type="submit" [disabled]="!vocationInput" class="mx-1">Submit</button>
         </div>
       </form>
     </div>
