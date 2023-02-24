@@ -49,6 +49,24 @@ input {
   margin: 0 5px;
 }
 
+.toast-class {
+  position: absolute;
+  bottom: 0;
+  margin: 2rem;
+  display: inline-flex;
+  min-width: 250px;
+  box-shadow: 6px 6px 12px #00000040;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 6px solid black;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  background: #308800;
+  color: white;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

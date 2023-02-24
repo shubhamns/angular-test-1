@@ -14,6 +14,8 @@ export class AppComponent {
   selectedEmployee: any;
   workInput: string = "";
   vocationInput: string = "";
+  toastMessage = "This is a toast";
+  showsToast = false;
 
   @ViewChild("workModal", { static: false }) workModal!: ElementRef;
   @ViewChild("vocationModal", { static: false }) vocationModal!: ElementRef;
@@ -66,8 +68,13 @@ export class AppComponent {
     this._employeeService.updateWork(payload).subscribe(
       (resp: any) => {
         console.log("resp", resp);
+        this.showsToast = true;
+        this.toastMessage = "Update work successfully.";
         this.loadEmployee();
         this.handleHideWork();
+        setTimeout(() => {
+          this.showsToast = false;
+        }, 3000);
       },
       (err: any) => {
         console.log("err", err);
@@ -84,8 +91,13 @@ export class AppComponent {
     this._employeeService.updateVacation(payload).subscribe(
       (resp: any) => {
         console.log("resp", resp);
+        this.showsToast = true;
+        this.toastMessage = "Update vocation successfully.";
         this.loadEmployee();
         this.handleHideVocation();
+        setTimeout(() => {
+          this.showsToast = false;
+        }, 3000);
       },
       (err: any) => {
         console.log("err", err);
