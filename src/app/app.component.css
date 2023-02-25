@@ -54,7 +54,7 @@ input {
   bottom: 0;
   margin: 2rem;
   display: inline-flex;
-  min-width: 250px;
+  min-width: 260px;
   box-shadow: 6px 6px 12px #00000040;
   flex-flow: row nowrap;
   align-items: center;

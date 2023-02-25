@@ -37,6 +37,13 @@ export class AppComponent {
     );
   }
 
+  closeToast() {
+    setTimeout(() => {
+      this.toastMessage = "This is a toast";
+      this.showsToast = false;
+    }, 3000);
+  }
+
   handleShowWork(emp: any) {
     this.workModal.nativeElement.style.display = "block";
     this.showHideWorkModal = !this.showHideWorkModal;
@@ -61,6 +68,13 @@ export class AppComponent {
   }
 
   submitWork() {
+    if (parseInt(this.workInput) > 260) {
+      this.toastMessage = "Work value must be less then 260";
+      this.showsToast = true;
+      this.closeToast();
+      this.handleHideWork();
+      return;
+    }
     const payload = {
       id: this.selectedEmployee?.empId,
       value: this.workInput,
@@ -70,20 +84,28 @@ export class AppComponent {
         console.log("resp", resp);
         this.showsToast = true;
         this.toastMessage = "Update work successfully.";
+        this.closeToast();
         this.loadEmployee();
         this.handleHideWork();
-        setTimeout(() => {
-          this.showsToast = false;
-        }, 3000);
       },
       (err: any) => {
         console.log("err", err);
-        alert("Something went wrong please try again");
+        this.showsToast = true;
+        this.toastMessage = err?.error?.detail;
+        this.closeToast();
+        this.handleHideWork();
       }
     );
   }
 
   submitVocation() {
+    if (parseInt(this.vocationInput) > 260) {
+      this.toastMessage = "Vocation value must be less then 260";
+      this.showsToast = true;
+      this.closeToast();
+      this.handleHideVocation();
+      return;
+    }
     const payload = {
       id: this.selectedEmployee?.empId,
       value: this.vocationInput,
@@ -93,15 +115,16 @@ export class AppComponent {
         console.log("resp", resp);
         this.showsToast = true;
         this.toastMessage = "Update vocation successfully.";
+        this.closeToast();
         this.loadEmployee();
         this.handleHideVocation();
-        setTimeout(() => {
-          this.showsToast = false;
-        }, 3000);
       },
       (err: any) => {
         console.log("err", err);
-        alert("Something went wrong please try again");
+        this.showsToast = true;
+        this.toastMessage = err?.error?.detail;
+        this.closeToast();
+        this.handleHideVocation();
       }
     );
   }

@@ -6,7 +6,7 @@ import { catchError } from "rxjs/operators";
   providedIn: "root",
 })
 export class EmployeeService {
-  APIURL = "http://localhost:8090";
+  APIURL = "http://localhost:8095";
   constructor(private httpClient: HttpClient) {}
   private handleError(error: any) {
     return throwError(error);
